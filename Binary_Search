@@ -4,50 +4,58 @@
 //July 27 2016
 package Search;
 import java.util.*;
-public class Binary_search {
+public class binary_searching {
 
 	public static void main(String[]args){
-		int terminator = 0 ;
-		int arrayItem[]={1,2,3,4,5,6,7,8,9,10};
-		int finder=0;
-		int item=11;
-		int firPoint = 0;
-		int midPoint;
-		int arraySize = arrayItem.length;
-		int temp = 0;
-		int i=0;
+	int arrayItem[]={12,23,31,44,52,63,74,81,92,10};
+	int item,j=0,set=1;
+	int arraySize= arrayItem.length+1;
+	int mid=arraySize/2,temp=0,firs=0;
+	boolean terminator=false;
+		Scanner input= new Scanner(System.in);
+	for(int i=0; i<=9; i++){	
+		System.out.println("Index number ["+(i)+"]= "+arrayItem[i]);
+		System.out.println();
+	}
+
+	System.out.println("Item: ");
+	item=input.nextInt();
+	
+
+	do{
+		System.out.println("set"+set);
+	for(int r=firs; r<=mid;r++){
 		
-		midPoint= (firPoint+arraySize)/2;
 		
-		while(terminator != 1){
-								
-			while(firPoint!=midPoint){
-				if(finder==arraySize){
-					System.out.println(" The Item is not Here!!");
-					break;
-				}
-				
-										
-							
-							if (finder == item){
-							
-								System.out.println("The Item you searched is on the Index " + finder);
-								
-								terminator++;
-								break;
-							
-							}
-							
-						finder++;	}
-						firPoint= midPoint;
-						temp= firPoint/2;
-						midPoint= temp;
-						
-						
+		if (firs==9){
+			System.out.println("TEMINADED!!!! the item you Search is not here!!!");
+		terminator=true;
+		break;
 		}
 		
-		
-		
-		
+		if(item==arrayItem[r]){
+		System.out.println("The Item is on the Index number: "+ j+" of the "+set+" set");
+	terminator= true;
+	break;
 	}
+	
+	else{
+		System.out.println("The item is not on index :"+ j);
+		
+		}
+		
+j++;
 }
+
+	set++;
+	j=0;
+	firs= mid+1;
+	mid= (firs/2)+mid;
+
+	}while(terminator!=true);
+	
+			
+	
+	
+	
+}}
